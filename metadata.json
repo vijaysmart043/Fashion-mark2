@@ -1,0 +1,9 @@
+{
+  "name": "LuxeThread Fashion E-Commerce",
+  "description": "A modern, responsive fashion e-commerce web application featuring curated clothing collections, interactive product filtering, shopping cart, wishlist, customer reviews, and seamless checkout.",
+  "requestor": "vsmart996@gmail.com",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ],
+  "permissions": []
+}

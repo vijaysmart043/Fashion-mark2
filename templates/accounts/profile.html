@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}My Account | LUXETHREADS{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow-sm p-4">
+                <div class="text-center mb-3">
+                    <i class="bi bi-person-circle display-4 text-maroon"></i>
+                    <h4 class="font-serif fw-bold mt-2">{{ user.username }}</h4>
+                    <span class="text-muted small">{{ user.email }}</span>
+                </div>
+                <hr>
+                <ul class="nav flex-column nav-pills gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link active bg-maroon text-white" href="#"><i class="bi bi-person me-2"></i> Profile Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="bi bi-bag-check me-2"></i> My Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="bi bi-geo-alt me-2"></i> Saved Addresses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="bi bi-heart me-2"></i> Wishlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" action="{% url 'admin:logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link text-danger border-0 bg-transparent w-100 text-start"><i class="bi bi-box-arrow-right me-2"></i> Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm p-4">
+                <h3 class="font-serif text-maroon mb-4">Customer Profile</h3>
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label class="form-label text-muted small">Email Address</label>
+                        <input type="text" class="form-control" value="{{ user.email }}" readonly>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label text-muted small">Mobile Number</label>
+                        <input type="text" class="form-control" value="{{ user.mobile|default:'Not provided' }}" readonly>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label text-muted small">Username</label>
+                        <input type="text" class="form-control" value="{{ user.username }}" readonly>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label text-muted small">Date of Birth</label>
+                        <input type="text" class="form-control" value="{{ user.date_of_birth|default:'Not provided' }}" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
